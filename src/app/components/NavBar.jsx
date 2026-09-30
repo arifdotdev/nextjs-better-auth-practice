@@ -22,14 +22,22 @@ export default function NavBar() {
       <li>
         <Link href="#">Features</Link>
       </li>
-      <li>
-        <Link href="#" className="font-medium text-accent" aria-current="page">
-          Dashboard
-        </Link>
-      </li>
-      <li>
-        <Link href="#">Pricing</Link>
-      </li>
+      {session?.user && (
+        <>
+          <li>
+            <Link
+              href="/dashboard"
+              className="font-medium text-accent"
+              aria-current="page"
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link href="/profile">Profile</Link>
+          </li>
+        </>
+      )}
     </>
   );
 
