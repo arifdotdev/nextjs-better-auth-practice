@@ -10,6 +10,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { signIn, signUp } from "@/app/lib/auth-client";
+import Link from "next/link";
 
 const SignUpPage = () => {
   const onSubmit = async (e) => {
@@ -23,7 +24,7 @@ const SignUpPage = () => {
       email: data.email,
       password: data.password,
     });
-    console.log(resData, "from sign up page");
+    console.log("from sign up page", resData);
   };
 
   const handleGoogleSignIn = async () => {
@@ -114,6 +115,7 @@ const SignUpPage = () => {
       <div>
         <Button onClick={handleGithubSignIn}>Sign in with git Hub</Button>
       </div>
+
     </div>
   );
 };

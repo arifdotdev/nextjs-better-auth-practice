@@ -9,20 +9,21 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 
 const SignInPage = () => {
-  const onSubmit = async(e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    const {data: resData, error} = await signIn.email({
-        email: data.email,
-        password: data.password,
-        rememberMe: true,
-        callbackURL: '/'
-    })
+    const { data: resData, error } = await signIn.email({
+      email: data.email,
+      password: data.password,
+      rememberMe: true,
+      callbackURL: "/",
+    });
   };
 
   return (
@@ -75,6 +76,12 @@ const SignInPage = () => {
         <Button type="reset" variant="secondary">
           Reset
         </Button>
+        <div className="my-5">or</div>
+        <div>
+          <Link href="/forgot-password" className="text-blue-400">
+            Forgot password click here{" "}
+          </Link>
+        </div>
       </div>
     </Form>
   );
